@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <title>Save Successful</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background-color: #eef2f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 80px auto;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #2ecc71;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .filename {
+      font-weight: bold;
+      color: #2980b9;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #2980b9;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✅ Records Saved Successfully!</h1>
+    <p>Your data was saved to:</p>
+    <div class="filename">{{ filename }}</div>
+
+    <a class="button" href="/">🏠 Back to Home</a>
+
+    <div class="footer">
+      Program by Inigo Abuel
+    </div>
+  </div>
+</body>
+</html>

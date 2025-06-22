@@ -1,122 +1,169 @@
-
 <!doctype html>
 <html>
   <head>
     <title>Coumarin Records</title>
-   <style>
-  body {
-    font-family: "Segoe UI", Tahoma, sans-serif;
-    background-color: #eef2f5;
-    margin: 0;
-    padding: 0;
-  }
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background-color: #eef2f5;
+        margin: 0;
+        padding: 0;
+      }
 
-  .container {
-    max-width: 1100px;
-    margin: 40px auto;
-    background-color: #fff;
-    padding: 30px 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
+      .container {
+        max-width: 1100px;
+        margin: 40px auto;
+        background-color: #fff;
+        padding: 30px 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
 
-  h2 {
-    text-align: center;
-    color: #2c3e50;
-    font-size: 26px;
-    margin-bottom: 20px;
-  }
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        font-size: 32px;
+        margin-bottom: 5px;
+      }
 
-  .btn-save {
-    text-align: center;
-    margin: 20px 0;
-  }
+      h3 {
+        text-align: center;
+        color: #7f8c8d;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
 
-  .btn-save button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  }
+      .btn-row {
+        text-align: center;
+        margin: 20px 0;
+      }
 
-  .btn-save button:hover {
-    background-color: #2980b9;
-  }
+      .btn-row a {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        text-decoration: none;
+        padding: 12px 20px;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 5px;
+        margin: 0 10px;
+        transition: background 0.3s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
+      .btn-row a:hover {
+        background-color: #2980b9;
+      }
 
-  th, td {
-    padding: 12px 16px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
+      .btn-row .delete {
+        background-color: #e74c3c;
+      }
 
-  th {
-    background-color: #34495e;
-    color: white;
-    position: sticky;
-    top: 0;
-  }
+      .btn-row .delete:hover {
+        background-color: #c0392b;
+      }
 
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
 
-  tr:hover {
-    background-color: #f1f1f1;
-  }
+      th, td {
+        padding: 12px 16px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
 
-  ul {
-    color: green;
-    text-align: center;
-    font-weight: bold;
-    list-style: none;
-    padding: 0;
-  }
-</style>
+      th {
+        background-color: #34495e;
+        color: white;
+        position: sticky;
+        top: 0;
+      }
 
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
 
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 14px;
+        color: #888;
+      }
+
+      .mid-label {
+        text-align: center;
+        font-style: italic;
+        color: #888;
+        background-color: #f3f3f3;
+      }
+    </style>
   </head>
   <body>
-    <h2 style="text-align:center;">{{ name }} - CST8002</h2>
+    <div class="container">
+      <h1>Coumarin Data Viewer</h1>
+      <h3>Program by Inigo Abuel</h3>
 
-    <div class="btn-save">
-      <form action="/save" method="get">
-        <button type="submit">💾 Save to CSV</button>
-      </form>
+      <div class="btn-row">
+        <a href="/add">➕ Add New Record</a>
+        <a href="/save">💾 Save Records to File</a>
+      </div>
+
+      <table>
+        <tr>
+          <th>#</th>
+          <th>Region</th>
+          <th>Function</th>
+          <th>Origin</th>
+          <th>Product</th>
+          <th>Date Sampled</th>
+          <th>Type of Test</th>
+          <th>Component</th>
+          <th>Result</th>
+          <th>Unit</th>
+          <th>Plan Code</th>
+          <th>Actions</th>
+        </tr>
+
+        {% for r in records %}
+        <tr>
+          <td>{{ loop.index0 }}</td>
+          <td>{{ r.region }}</td>
+          <td>{{ r.function }}</td>
+          <td>{{ r.origin }}</td>
+          <td>{{ r.product }}</td>
+          <td>{{ r.date_sampled }}</td>
+          <td>{{ r.type_of_test }}</td>
+          <td>{{ r.component }}</td>
+          <td>{{ r.result }}</td>
+          <td>{{ r.unit }}</td>
+          <td>{{ r.plan_code }}</td>
+          <td>
+            <a class="button" href="/edit/{{ loop.index0 }}">✏️ Edit</a>
+            <a class="button delete" href="/delete/{{ loop.index0 }}">🗑️ Delete</a>
+          </td>
+        </tr>
+
+        {% if loop.index % 10 == 0 %}
+        <tr>
+          <td colspan="12" class="mid-label">
+            Program by Inigo Abuel
+          </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+      </table>
+
+      <div class="footer">
+        Program by Inigo Abuel
+      </div>
     </div>
-
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul>
-          {% for message in messages %}<li>{{ message }}</li>{% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
-
-    <table>
-      <tr>
-        <th>Region</th><th>Function</th><th>Origin</th><th>Product</th>
-        <th>Date Sampled</th><th>Test</th><th>Component</th>
-        <th>Result</th><th>Unit</th><th>Plan Code</th>
-      </tr>
-      {% for r in records %}
-      <tr>
-        <td>{{ r.region }}</td><td>{{ r.function }}</td><td>{{ r.origin }}</td>
-        <td>{{ r.product }}</td><td>{{ r.date_sampled }}</td><td>{{ r.type_of_test }}</td>
-        <td>{{ r.component }}</td><td>{{ r.result }}</td><td>{{ r.unit }}</td><td>{{ r.plan_code }}</td>
-      </tr>
-      {% endfor %}
-    </table>
   </body>
 </html>

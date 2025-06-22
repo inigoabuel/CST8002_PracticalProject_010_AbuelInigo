@@ -1,4 +1,4 @@
-Region - Région,Function,Origin,Product,Date Sampled – Date d’échantillonage,Type of Test,Component,Result - Résultat,Unit - Unité,Plan Code - Code du régime
+Region,Function,Origin,Product,DateSampled,TypeOfTest,Component,Result,Unit,PlanCode
 ATLANTIC,Unknown,UNKNOWN,Baking Mixes,26-Jun-13,COUMARIN,Coumarin,12.2,µg/g,2013_TS020
 ATLANTIC,Domestic,CANADA,Bakery Product - Bread,26-Jun-13,COUMARIN,Coumarin,5.6,µg/g,2013_TS020
 ATLANTIC,Import,UNKNOWN,Granola/Cereal Bar,25-Jul-13,COUMARIN,Coumarin,5.8,µg/g,2013_TS020

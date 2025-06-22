@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Record</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        label { display: block; margin-top: 10px; }
+        input { width: 100%; padding: 8px; margin-top: 5px; }
+        button { margin-top: 20px; padding: 10px 15px; }
+    </style>
+</head>
+<body>
+    <h1>Edit Coumarin Record</h1>
+    <form method="POST">
+        <label>Region:<input name="region" value="{{ record.region }}"></label>
+        <label>Function:<input name="function" value="{{ record.function }}"></label>
+        <label>Origin:<input name="origin" value="{{ record.origin }}"></label>
+        <label>Product:<input name="product" value="{{ record.product }}"></label>
+        <label>Date Sampled:<input name="date_sampled" value="{{ record.date_sampled }}"></label>
+        <label>Type of Test:<input name="type_of_test" value="{{ record.type_of_test }}"></label>
+        <label>Component:<input name="component" value="{{ record.component }}"></label>
+        <label>Result:<input name="result" value="{{ record.result }}"></label>
+        <label>Unit:<input name="unit" value="{{ record.unit }}"></label>
+        <label>Plan Code:<input name="plan_code" value="{{ record.plan_code }}"></label>
+        <button type="submit">Update Record</button>
+    </form>
+    <p><a href="/">⬅️ Back to Home</a></p>
+</body>
+</html>
